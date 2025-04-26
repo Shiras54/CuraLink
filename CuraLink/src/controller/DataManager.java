@@ -23,7 +23,8 @@ public class DataManager {
         }
     }
 
-    // Specialized short methods
+    // 🔥 Specialized shortcut methods 🔥
+
     public static ArrayList<Patient> loadPatients() {
         return loadData("patients.ser");
     }
@@ -50,5 +51,10 @@ public class DataManager {
 
     public static ArrayList<Resource> loadResources() {
         return loadData("resources.ser");
+    }
+
+    // ✅ ✅ ✅ ADDITION: Specialized for doctor availability
+    public static ArrayList<DoctorAvailability> loadDoctorAvailabilities() {
+        return loadData("availabilities.ser");
     }
 }

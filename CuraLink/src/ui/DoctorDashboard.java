@@ -39,4 +39,5 @@ public class DoctorDashboard extends Application {
 
         VBox layout = new VBox(20);
         layout.getChildren().addAll(title, viewAppointmentsBtn, setAvailabilityBtn, logoutBtn);
-        layout.setStyle("-fx
+        layout.setStyle("-fx-alignment: center; -fx-padding: 20;");
+    }}
