@@ -8,7 +8,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        new LoginPage().start(primaryStage);
+        new HomePage().start(primaryStage);
     }
 
     public static void main(String[] args) {
