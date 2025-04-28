@@ -17,12 +17,12 @@ public class DoctorAppointmentsPage extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("My Appointments - CuraLink");
 
-        Label title = new Label("Appointments for Dr. " + SessionManager.getLoggedStaff().getName());
+        Label title = new Label("Appointments for Dr. " + SessionManager.getLoggedDoctor().getName());
         title.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
 
         ListView<String> appointmentsList = new ListView<>();
         ArrayList<Appointment> allAppointments = DataManager.loadAppointments();
-        String doctorUsername = SessionManager.getLoggedStaff().getUsername();
+        String doctorUsername = SessionManager.getLoggedDoctor().getUsername();
 
         for (Appointment appt : allAppointments) {
             if (appt.getDoctorUsername().equals(doctorUsername)) {

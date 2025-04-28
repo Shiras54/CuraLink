@@ -29,19 +29,26 @@ public class PatientDashboard extends Application {
         logoutBtn.setPrefWidth(250);
 
         bookAppointmentBtn.setOnAction(e -> {
-            // To be linked to BookAppointment screen
+        	new BookAppointment().start(new Stage());
+            primaryStage.close();
         });
 
         myAppointmentsBtn.setOnAction(e -> {
             // To be linked to MyAppointments screen
+        	new MyAppointments().start(new Stage());
+            primaryStage.close();
         });
 
         emergencyBtn.setOnAction(e -> {
             // To be linked to EmergencyRequest screen
+        	new EmergencyRequestPage().start(new Stage());
+            primaryStage.close();
         });
 
         billingBtn.setOnAction(e -> {
             // To be linked to MyBillings screen
+        	new MyBillsPage().start(new Stage());
+            primaryStage.close();
         });
 
         logoutBtn.setOnAction(e -> {

@@ -6,13 +6,15 @@ public class Staff implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String username;
+    private String email;
     private String password;
     private String name;
     private String role; // Admin, Receptionist, Dispatcher
     private String contact;
 
-    public Staff(String username, String password, String name, String role, String contact) {
+    public Staff(String username, String email, String password, String name, String role, String contact) {
         this.username = username;
+        this.email = email;
         this.password = password;
         this.name = name;
         this.role = role;
@@ -21,6 +23,10 @@ public class Staff implements Serializable {
 
     public String getUsername() {
         return username;
+    }
+    
+    public String getEmail() {
+    	return email;
     }
 
     public String getPassword() {

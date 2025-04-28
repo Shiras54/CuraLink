@@ -48,10 +48,11 @@ public class AdminSignup extends Application {
 
             Staff newAdmin = new Staff(
                     nameField.getText(),
-                    contactField.getText(),
                     emailField.getText(),
                     passwordField.getText(),
-                    "admin"
+                    nameField.getText(),                    
+                    "admin",
+                    contactField.getText()
             );
 
             DataManager.saveStaff(newAdmin);

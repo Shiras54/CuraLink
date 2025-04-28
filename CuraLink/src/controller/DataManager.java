@@ -18,7 +18,7 @@ public class DataManager {
 	    }
 
 	    if (!hasAdmin) {
-	        Staff defaultAdmin = new Staff("Default Admin", "admin@curalink.com", "admin123", "admin");
+	        Staff defaultAdmin = new Staff("Default Admin", "admin@curalink.com", "admin123", "admin", "admin", "0561234567");
 	        staffList.add(defaultAdmin);
 	        saveData(staffList, "staff.ser");
 	        System.out.println("✅ Default admin created: admin@curalink.com / admin123");

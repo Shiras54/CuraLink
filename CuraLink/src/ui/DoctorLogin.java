@@ -34,7 +34,7 @@ public class DoctorLogin extends Application {
             ArrayList<Doctor> doctors = DataManager.loadDoctors();
             for (Doctor doctor : doctors) {
                 if (doctor.getEmail().equals(email) && doctor.getPassword().equals(password)) {
-                    SessionManager.setLoggedStaff(doctor);
+                    SessionManager.setLoggedDoctor(doctor);
                     new DoctorDashboard().start(new Stage());
                     primaryStage.close();
                     return;

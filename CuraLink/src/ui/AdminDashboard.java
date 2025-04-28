@@ -45,7 +45,7 @@ public class AdminDashboard extends Application {
 
         logoutBtn.setOnAction(e -> {
             SessionManager.logout();
-            new LoginPage().start(new Stage());
+            new HomePage().start(new Stage());
             primaryStage.close();
         });
 

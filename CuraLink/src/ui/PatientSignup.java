@@ -44,11 +44,12 @@ public class PatientSignup extends Application {
 
             Patient newPatient = new Patient(
                     nameField.getText(),
-                    dobField.getText(),
-                    contactField.getText(),
                     emailField.getText(),
-                    addressField.getText(),
-                    passwordField.getText()
+                    passwordField.getText(),
+                    nameField.getText(),
+                    dobField.getText(),
+                    contactField.getText(),                    
+                    addressField.getText()                    
             );
 
             DataManager.savePatient(newPatient);

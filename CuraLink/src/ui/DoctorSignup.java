@@ -40,11 +40,13 @@ public class DoctorSignup extends Application {
             }
 
             Doctor newDoctor = new Doctor(
+            		nameField.getText(),
+                    emailField.getText(),
+                    passwordField.getText(),
                     nameField.getText(),
                     specializationField.getText(),
-                    contactField.getText(),
-                    emailField.getText(),
-                    passwordField.getText()
+                    contactField.getText()                    
+                    
             );
 
             DataManager.saveDoctor(newDoctor);

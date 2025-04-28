@@ -14,7 +14,7 @@ public class DoctorDashboard extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Doctor Dashboard - CuraLink");
 
-        Label title = new Label("Welcome, Dr. " + SessionManager.getLoggedStaff().getName());
+        Label title = new Label("Welcome, Dr. " + SessionManager.getLoggedDoctor().getName());
         title.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
 
         Button viewAppointmentsBtn = new Button("View My Appointments");
@@ -40,4 +40,8 @@ public class DoctorDashboard extends Application {
         VBox layout = new VBox(20);
         layout.getChildren().addAll(title, viewAppointmentsBtn, setAvailabilityBtn, logoutBtn);
         layout.setStyle("-fx-alignment: center; -fx-padding: 20;");
+        
+        Scene scene = new Scene(layout, 400, 400);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }}

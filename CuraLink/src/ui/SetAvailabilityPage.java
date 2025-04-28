@@ -45,7 +45,7 @@ public class SetAvailabilityPage extends Application {
             }
 
             DoctorAvailability availability = new DoctorAvailability(
-                    SessionManager.getLoggedStaff().getUsername(),
+                    SessionManager.getLoggedDoctor().getUsername(),
                     weekday,
                     startTime,
                     endTime
