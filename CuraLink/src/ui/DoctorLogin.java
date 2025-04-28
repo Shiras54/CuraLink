@@ -1,13 +1,14 @@
 package ui;
 
+import controller.DataManager;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import util.SessionManager;
 import model.Doctor;
-import controller.DataManager;
+import util.SessionManager;
+
 import java.util.ArrayList;
 
 public class DoctorLogin extends Application {
@@ -16,45 +17,35 @@ public class DoctorLogin extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Doctor Login - CuraLink");
 
-        Label title = new Label("Doctor Login");
-        title.setStyle("-fx-font-size: 22px; -fx-font-weight: bold;");
-
-        TextField usernameField = new TextField();
-        usernameField.setPromptText("Username");
+        TextField emailField = new TextField();
+        emailField.setPromptText("Email");
 
         PasswordField passwordField = new PasswordField();
         passwordField.setPromptText("Password");
 
         Button loginBtn = new Button("Login");
+        Button signupBtn = new Button("Sign Up");
         Button backBtn = new Button("Back");
 
-        loginBtn.setPrefWidth(200);
-        backBtn.setPrefWidth(200);
-
         loginBtn.setOnAction(e -> {
-            String username = usernameField.getText();
+            String email = emailField.getText();
             String password = passwordField.getText();
 
             ArrayList<Doctor> doctors = DataManager.loadDoctors();
-
-            boolean success = false;
-            for (Doctor d : doctors) {
-                if (d.getUsername().equals(username) && d.getPassword().equals(password)) {
-                    SessionManager.setLoggedDoctor(d);
-                    success = true;
-                    break;
+            for (Doctor doctor : doctors) {
+                if (doctor.getEmail().equals(email) && doctor.getPassword().equals(password)) {
+                    SessionManager.setLoggedStaff(doctor);
+                    new DoctorDashboard().start(new Stage());
+                    primaryStage.close();
+                    return;
                 }
             }
+            new Alert(Alert.AlertType.ERROR, "Invalid email or password!").showAndWait();
+        });
 
-            if (success) {
-                new DoctorDashboard().start(new Stage());
-                primaryStage.close();
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Login Failed");
-                alert.setContentText("Invalid username or password.");
-                alert.showAndWait();
-            }
+        signupBtn.setOnAction(e -> {
+            new DoctorSignup().start(new Stage());
+            primaryStage.close();
         });
 
         backBtn.setOnAction(e -> {
@@ -62,9 +53,8 @@ public class DoctorLogin extends Application {
             primaryStage.close();
         });
 
-        VBox layout = new VBox(20);
-        layout.getChildren().addAll(title, usernameField, passwordField, loginBtn, backBtn);
-        layout.setStyle("-fx-alignment: center; -fx-padding: 50px;");
+        VBox layout = new VBox(15, emailField, passwordField, loginBtn, signupBtn, backBtn);
+        layout.setStyle("-fx-alignment: center; -fx-padding: 30px;");
 
         Scene scene = new Scene(layout, 400, 400);
         primaryStage.setScene(scene);
